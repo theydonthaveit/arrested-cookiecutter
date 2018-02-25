@@ -14,7 +14,7 @@ services:
   dbpostgres:
     image: postgres
     ports:
-      - "{{ cookiecutter.postgres_port }}:{{ cookiecutter.postgres_port }}"
+      - "dbpostgres:{{ cookiecutter.postgres_port }}"
     environment:
       POSTGRES_USER: {{ cookiecutter.postgres_user }}
       POSTGRES_PASSWORD: {{ cookiecutter.postgres_password }}
