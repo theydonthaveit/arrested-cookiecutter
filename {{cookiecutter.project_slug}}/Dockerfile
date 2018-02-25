@@ -3,8 +3,9 @@ ENV TZ UTC
 ADD ./requirements.txt /opt/code/requirements.txt
 WORKDIR /opt/code
 RUN mkdir -p /opt/logs && \
-   mkdir -p /opt/media && \
+  mkdir -p /opt/media && \
   apt-get update && apt-get install --no-install-recommends -y \
+  postgresql \
   gcc \
   build-essential &&\
   pip install --no-cache-dir -r requirements.txt && \

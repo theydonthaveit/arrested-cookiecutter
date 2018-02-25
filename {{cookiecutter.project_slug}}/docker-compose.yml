@@ -5,7 +5,17 @@ services:
     build: .
     container_name: {{ cookiecutter.package_name }}
     image: {{ cookiecutter.package_name }}
+    links:
+      - dbpostgres
     volumes:
       - ../{{ cookiecutter.project_slug }}:/opt/code
     ports:
       - "8080:8080"
+  dbpostgres:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: {{ cookiecutter.postgres_user }}
+      POSTGRES_PASSWORD: {{ cookiecutter.postgres_password }}
+      POSTGRES_DB: {{ cookiecutter.postgres_db }}

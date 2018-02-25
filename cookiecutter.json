@@ -1,5 +1,11 @@
 {
     "project_name": "Arrested Users API",
     "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-').replace('_', '-') }}",
-    "package_name": "{{ cookiecutter.project_slug.lower().replace(' ', '_').replace('-', '_') }}"
+    "package_name": "{{ cookiecutter.project_slug.lower().replace(' ', '_').replace('-', '_') }}",
+    "database_used": "{{ cookiecutter.database_used }}",
+    "postgres_host": "{{ cookiecutter.postgres_host }}",
+    "postgres_port": "{{ cookiecutter.postgres_port }}",
+    "postgres_db": "{{ cookiecutter.postgres_db }}",
+    "postgres_user": "{{ cookiecutter.postgres_user }}",
+    "postgres_password": "{{ cookiecutter.postgres_password }}"
 }
