@@ -12,7 +12,7 @@ class Dev(Config):
 
     DEBUG = True
 
-    SQLALCHEMY_DATABASE_URI = 'postgresql://{{ cookiecutter.postgres_host }}:{{ cookiecutter.postgres_port }}/{{ cookiecutter.postgres_db }}'
+    SQLALCHEMY_DATABASE_URI = 'postgresql://{{ cookiecutter.postgres_user }}:{{ cookiecutter.postgres_password }}@{{ cookiecutter.postgres_host }}:{{ cookiecutter.postgres_port }}/{{ cookiecutter.postgres_db }}'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     BASIC_AUTH_USERNAME = 'admin'
     BASIC_AUTH_PASSWORD = 'secret'
