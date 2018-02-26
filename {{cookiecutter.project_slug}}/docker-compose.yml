@@ -1,21 +1,21 @@
 version: '2'
 
 services:
-  api:
-    build: .
-    container_name: {{ cookiecutter.package_name }}
-    image: {{ cookiecutter.package_name }}
-    links:
-      - dbpostgres
-    volumes:
-      - ../{{ cookiecutter.project_slug }}:/opt/code
-    ports:
-      - "8080:8080"
-  dbpostgres:
-    image: postgres
-    ports:
-      - "dbpostgres:{{ cookiecutter.postgres_port }}"
+  postgres:
+    image: postgres:latest
+    expose:
+      - {{ cookiecutter.postgres_port }}
     environment:
       POSTGRES_USER: {{ cookiecutter.postgres_user }}
       POSTGRES_PASSWORD: {{ cookiecutter.postgres_password }}
       POSTGRES_DB: {{ cookiecutter.postgres_db }}
+  api:
+    build: .
+    container_name: {{ cookiecutter.package_name }}
+    image: {{ cookiecutter.package_name }}
+    depends_on:
+      - postgres
+    volumes:
+      - ../{{ cookiecutter.project_slug }}:/opt/code
+    ports:
+      - "8080:8080"
